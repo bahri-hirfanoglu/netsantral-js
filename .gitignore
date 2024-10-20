@@ -34,3 +34,5 @@ logs/*.log
 # Temporary files
 tmp/
 temp/
+
+/test

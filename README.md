@@ -20,9 +20,8 @@ import { Call } from 'netsantral-js';
 
 Çağrı süreçlerini yönetmek için bir Call instance oluşturun.
 
+> **Not:** Netgsm hesap ayarları bölümünden **Alt Kullanıcı Hesabı** oluşturarak username ve password değerlerini elde edebilirsiniz.
 ```js
-//Netgsm hesap ayarları bölümünde buluna Alt Kullanıcı Hesabı oluşturarak username ve password değerlerini elde edebilirsiniz.
-
 const call = new Call({
   username: '850XXXXXXX',
   password: '*********',
@@ -30,6 +29,7 @@ const call = new Call({
 ```
 
 ### Çağrı Başlat
+Santraliniz üzerinden bir dış arama başlatmanızı sağlar.
 
 ```js
 await call.start({
@@ -40,39 +40,62 @@ await call.start({
 ```
 
 ### Çağrı Sonlandır
+Aktif olan bir çağrıyı sonlandırmanızı sağlar.
 
+#### Son başlatılan çağrıyı sonlandırır.
 ```js
-//Son başlatılan çağrıyı sonlandırır.
-
 await call.end();
+```
 
-//Spesifik bir çağrıyı sonlandırır. unique_id ve crm_id verileri bir çağrı başlattığınızda dönen response içerisinde bulunmaktadır.
-
+#### Spesifik bir çağrıyı sonlandırır. unique_id ve crm_id verileri bir çağrı başlattığınızda dönen response içerisinde bulunmaktadır.
+```js
 await call.end({ unique_id: 'sip-xxxx-xxxx-xxxx' crm_id: 1});
 ```
 
 ### Çağrıyı Sessize Al
 
+#### Gelen ve giden sesleri kapat.
 ```js
+await call.mute({ direction: 'all' });
+```
 
-await call.mute({ direction: 'all' }); //Gelen ve giden sesleri kapatır.
+#### Sadece gelen sesleri kapat.
+```js
+await call.mute({ direction: 'in' });
+```
 
-
-await call.mute({ direction: 'in' }); //Gelen sesi kapatır.
-
-
-await call.mute({ direction: 'out' }); //Giden sesi kapatır.
+#### Sadece giden sesleri kaapt
+```js
+await call.mute({ direction: 'out' });
 ```
 
 
 ### Çağrıyı Sessizden Çıkar
 
+#### Gelen ve giden tüm sesleri sessizden çıkar.
 ```js
-await call.unMute({ direction: 'all' }); //Gelen ve giden sessizden çıkarır.
+await call.unMute({ direction: 'all' });
+```
+#### Sadece gelen sesi sesizden çıkar.
+```js
+await call.unMute({ direction: 'in' });
+```
+#### Sadece giden sesi sessizden çıkar.
 
+```js
+await call.unMute({ direction: 'out' });
+```
 
-await call.unMute({ direction: 'in' }); //Gelen sesi sessizden çıkarır.
+### Çağrıyı transfer et
 
+#### Kör transfer (xfer - Blind Transfer) 
+> xfer çağrı transferinde, arayan kişi başka bir kişiye yönlendirildiğinde, çağrıyı transfer eden kişi görüşmeden tamamen ayrılır.  Çağrıyı transfer eden kişi, çağrının yeni hedefe ulaşacağını kontrol etmez ya da arayanla hedef kişi arasında başka bir işlem yapmaz.
+```js
+await call.transfer({ exten: '104', type: 'xfer'});
+```
 
-await call.unMute({ direction: 'out' }); //Giden sesi sessizden çıkarır.
+#### Katılımlı transfer (atxfer - Attended Transfer)
+> atxfer transferde, çağrıyı transfer eden kişi önce çağrıyı hedefe aktaracağı kişiyle (yeni alıcı) konuşur ve ardından transferi gerçekleştirir. Transfer işlemi sırasında çağrıyı transfer eden kişi, görüşme başlatmadan önce durumu açıklama fırsatına sahiptir.
+```js
+await call.transfer({ exten: '104', type: 'atxfer'});
 ```

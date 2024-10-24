@@ -1,15 +1,13 @@
+import { IsNotEmpty, IsNumber, IsString } from "class-validator";
+
 /**
  * Arama sonlandırma için gereken parametreler.
  */
-export interface EndCallDto {
-  /**
-   * Çağrı başladığında response içerisinde dönen unique_id değeri
-   * Örnek: sip-xxxxxxxxxx.xxxxxx
-   */
-  uniqueId: string;
+export class EndCallDto {
+  @IsNotEmpty()
+  @IsString()
+  unique_id: string;
 
-  /**
-   * Çağrı başlatırken gönderdiğiniz crmid değeri
-   */
-  crmId: Number;
+  @IsNumber()
+  crm_id: Number;
 }

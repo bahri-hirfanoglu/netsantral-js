@@ -1,23 +1,20 @@
 import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 
 /**
- * Arama başlatmak için gereken parametreler.
+ * Çağrı bağlamak için gereken parametreler.
  */
-export class StartCallDto {
+export class LinkupCallDto {
   @IsString()
   @IsNotEmpty()
-  customer_num: string;
+  caller: string;
 
   @IsString()
   @IsNotEmpty()
-  internal_num: string;
+  called: string;
 
   @IsString()
   @IsNotEmpty()
   trunk: string;
-
-  @IsString()
-  pbxnum?: string;
 
   @IsOptional()
   @IsNumber()
@@ -35,12 +32,11 @@ export class StartCallDto {
   @IsNumber()
   wait_response?: Number;
 
-  constructor(partial?: Partial<StartCallDto>) {
+  constructor(partial?: Partial<LinkupCallDto>) {
     this.ring_timeout = partial?.ring_timeout ?? 20;
     this.crm_id = partial?.crm_id ?? 1;
     this.wait_response = partial?.wait_response ?? 1;
     this.originate_order = partial?.originate_order ?? 'of';
-    this.pbxnum = partial?.pbxnum ?? partial?.trunk;
     Object.assign(this, partial);
   }
 }

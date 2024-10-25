@@ -10,25 +10,30 @@ Netgsm'in bir ürünü olan Netsantral için gelitirilmiş npm paketedir.
 npm i netsantral-js
 ```
 
-## Santral Yönetimi
-Santral paketini projenize dahil edin.
+netsantral-js paketini projenize dahil edin.
 
 ```js
 import { Call } from 'netsantral-js';
 ```
 
+> **Not:** Netgsm hesap ayarları bölümünden **Alt Kullanıcı Hesabı** oluşturarak username ve password değerlerini elde edebilirsiniz.
+
+## Santral Yönetimi
+
+
 Çağrı süreçlerini yönetmek için bir Call instance oluşturun.
 
-> **Not:** Netgsm hesap ayarları bölümünden **Alt Kullanıcı Hesabı** oluşturarak username ve password değerlerini elde edebilirsiniz.
+
+
 ```js
 const call = new Call({
   username: '850XXXXXXX',
   password: '*********',
 });
 ```
+
 <details>
 <summary>Çağrı Başlat</summary>
-
 
 **Santraliniz üzerinden bir dış arama başlatmanızı sağlar.**
 
@@ -39,6 +44,7 @@ await call.start({
   trunk: '850XXXXXXX',
 });
 ```
+
 </details>
 
 <details>
@@ -50,9 +56,11 @@ await call.end();
 ```
 
 #### Spesifik bir çağrıyı sonlandırır. unique_id ve crm_id verileri bir çağrı başlattığınızda dönen response içerisinde bulunmaktadır.
+
 ```js
 await call.end({ unique_id: 'sip-xxxx-xxxx-xxxx' crm_id: 1});
 ```
+
 </details>
 
 <details>
@@ -64,14 +72,17 @@ await call.mute({ direction: 'all' });
 ```
 
 #### Sadece gelen sesleri kapat.
+
 ```js
 await call.mute({ direction: 'in' });
 ```
 
 #### Sadece giden sesleri kaapt
+
 ```js
 await call.mute({ direction: 'out' });
 ```
+
 </details>
 
 <details>
@@ -90,6 +101,7 @@ await call.unMute({ direction: 'in' });
 ```js
 await call.unMute({ direction: 'out' });
 ```
+
 </details>
 
 <details>
@@ -102,8 +114,75 @@ await call.transfer({ exten: '104', type: 'xfer'});
 ```
 
 #### Katılımlı transfer (atxfer - Attended Transfer)
+
 > atxfer transferde, çağrıyı transfer eden kişi önce çağrıyı hedefe aktaracağı kişiyle (yeni alıcı) konuşur ve ardından transferi gerçekleştirir. Transfer işlemi sırasında çağrıyı transfer eden kişi, görüşme başlatmadan önce durumu açıklama fırsatına sahiptir.
+
 ```js
-await call.transfer({ exten: '104', type: 'atxfer'});
+await call.transfer({ exten: '104', type: 'atxfer' });
+```
+
+</details>
+
+## Kuyruk Yönetimi
+
+Kuyruk süreçlerini yönetmek için bir Queue instance oluşturun.
+
+```js
+const queue = new Queue({
+  username: '850XXXXXXX',
+  password: '*********',
+});
+```
+
+<details>
+<summary>Kuyruk İstatistiklerini Al</summary>
+  
+#### Belirli bir kuyruk istatiğini al
+```js
+await queue.stats({queue: '{{queueName}}'}),
+```
+</details>
+
+<details>
+<summary>Kuyruğa Dahili Ekle</summary>
+  
+#### Dahiliyi belirli bir kuyruğa ekleyebilirsin
+> "**paused: 1**" Kuyruğa aktarılan dahili molada olarak aktarılır.
+
+> "**paused: 0**" Kuyruğa aktarılan dahili müsait olarak aktarılır.
+
+```js
+await queue.addInternal({
+  queue: '{{queueName}}',
+  exten: '{{internal}}',
+  paused: 1,
+});
+```
+
+</details>
+
+<details>
+<summary>Dahiliyi Molaya Al</summary>
+  
+#### Dahiliyi molaya alabilirsin
+```js
+  await queue.startInternalBreak({
+    queue: '{{queueName}}',
+    exten: '{{internal}}',
+    reason: '{{reason}}',
+  });
+```
+</details>
+
+<details>
+<summary>Dahiliyi Moladan Çıkar</summary>
+  
+#### Dahiliyi moladan çıkarabilirsin
+```js
+  await queue.stopInternalBreak({
+    queue: '{{queueName}}',
+    exten: '{{internal}}',
+    reason: '{{reason}}',
+  });
 ```
 </details>

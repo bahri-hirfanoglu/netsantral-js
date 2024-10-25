@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "NetGSM NetSantral API Wrapper for Node.js (TypeScript)",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "format": "prettier --write src",
+    "lint": "eslint src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -12,6 +15,14 @@
     "netgsm",
     "netsantral api"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bahri-hirfanoglu/netsantral-js"
+  },
+  "bugs": {
+    "url": "https://github.com/bahri-hirfanoglu/netsantral-js/issues"
+  },
+  "homepage": "https://github.com/bahri-hirfanoglu/netsantral-js#readme",
   "author": "Bahri Hırfanoğlu",
   "license": "ISC",
   "dependencies": {

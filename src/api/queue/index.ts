@@ -66,21 +66,7 @@ class Queue extends Base {
       return this.validateAndSend(dto, '/netsantral/queue', AddExternalNumberDto);
     }
 
-  /**
-   * Validate DTO and send an API request.
-   * @param dto Data transfer object.
-   * @param endpoint API endpoint.
-   * @param DtoClass The class of the DTO to be used.
-   */
-  private async validateAndSend(
-    dto: any,
-    endpoint: string,
-    DtoClass: any,
-  ): Promise<any> {
-    await this.validateDto(dto);
-    const body = new DtoClass(dto);
-    return this.sendApiRequest(endpoint, body);
-  }
+
 }
 
 export default Queue;

@@ -44,7 +44,12 @@ class Call extends Base {
    * @param dto StartCallDto
    */
   async start(dto: StartCallDto): Promise<any> {
-    const response = await this.validateAndSend(dto, '/originate', StartCallDto);
+    const response = await this.validateAndSend(
+      dto,
+      '/originate',
+      StartCallDto,
+      (body) => this.setDefaultCallValue(body),
+    );
     await this.setCallInfo(response); // setCallInfo burada çağrılıyor
     return response;
   }
@@ -92,24 +97,14 @@ class Call extends Base {
   }
 
   /**
-   * Validate DTO and send an API request.
-   * @param dto Data transfer object.
-   * @param endpoint API endpoint.
-   * @param DtoClass The class of the DTO to be used.
-   */
-  private async validateAndSend(dto: any, endpoint: string, DtoClass: any): Promise<any> {
-    await this.validateDto(dto);
-    this.setDefaultCallValue(dto);
-    const body = new DtoClass(dto);
-    return this.sendApiRequest(endpoint, body);
-  }
-
-  /**
    * Mute or unmute a call based on the state.
    * @param dto MuteCallDto
    * @param state 'mute' or 'unmute'
    */
-  private async toggleMute(dto: MuteCallDto, state: 'mute' | 'unmute'): Promise<any> {
+  private async toggleMute(
+    dto: MuteCallDto,
+    state: 'mute' | 'unmute',
+  ): Promise<any> {
     this.setDefaultCallValue(dto);
     dto.state = state;
     return this.sendApiRequest('/muteaudio', dto);

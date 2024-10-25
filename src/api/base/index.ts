@@ -29,7 +29,9 @@ export class Base {
    * @returns
    */
   private handleResponse(data: any) {
-    const status = data.hasOwnProperty('status') ? (data.status == 'Success') : true;
+    const status = data.hasOwnProperty('status')
+      ? data.status == 'Success'
+      : true;
     if (status)
       ['response', 'status', 'message'].forEach((item) => delete data[item]);
     const value = status ? data : data?.message;
@@ -38,7 +40,7 @@ export class Base {
   }
 
   /**
-   * DTO doğrulama fonksiyonu
+   * DTO validation processes
    * @param dto
    */
   async validateDto(dto: any): Promise<void> {
@@ -48,7 +50,7 @@ export class Base {
     }
   }
   /**
-   * API isteği yapma fonksiyonu
+   * API request execution process
    * @param endpoint
    * @param body
    */
@@ -60,6 +62,30 @@ export class Base {
       throw new Error(`Error in request to ${endpoint}: ${error}`);
     }
   }
+
+  /**
+   * Validate DTO, execute a pre-request function, and send an API request.
+   * @param dto Data transfer object.
+   * @param endpoint API endpoint.
+   * @param DtoClass The class of the DTO to be used.
+   * @param beforeRequest Optional function to execute before sending the request.
+   */
+  public async validateAndSend(
+    dto: any,
+    endpoint: string,
+    DtoClass: any,
+    beforeRequest?: (body: any) => void,
+  ): Promise<any> {
+    await this.validateDto(dto);
+    const body = new DtoClass(dto);
+
+    if (beforeRequest) {
+      beforeRequest(body);
+    }
+
+    return this.sendApiRequest(endpoint, body);
+  }
+
   /**
    *
    * @param options

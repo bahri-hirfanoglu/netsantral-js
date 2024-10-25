@@ -10,13 +10,13 @@ Netgsm'in bir ürünü olan gelişmiş bulut santral hizmeti sunan Netsantral i�
 `netsantral-js` paketini npm kullanarak kurabilirsiniz:
 
 ```shell
-npm i netsantral
+npm i netsantral-js
 ```
 
 netsantral-js paketini projenize dahil edin.
 
 ```js
-import * as netsantral from 'netsantral';
+import * as netsantral from 'netsantral-js';
 ```
 
 > **Not:** Netgsm hesap ayarları bölümünden **Alt Kullanıcı Hesabı** oluşturarak username ve password değerlerini elde edebilirsiniz.

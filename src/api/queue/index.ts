@@ -42,17 +42,17 @@ class Queue extends Base {
    * @param dto takeInternalBreak
    * @returns
    */
-  async takeInternalBreak(dto: InternalBreakDto): Promise<any> {
+  async startInternalBreak(dto: InternalBreakDto): Promise<any> {
     dto.paused = 1;
     return this.validateAndSend(dto, '/agentpause', InternalBreakDto);
   }
 
   /**
    * Ends the break for the extension.
-   * @param dto outInternalBreak
+   * @param dto stopInternalBreak
    * @returns
    */
-  async outInternalBreak(dto: InternalBreakDto): Promise<any> {
+  async stopInternalBreak(dto: InternalBreakDto): Promise<any> {
     dto.paused = 0;
     return this.validateAndSend(dto, '/agentpause', InternalBreakDto);
   }

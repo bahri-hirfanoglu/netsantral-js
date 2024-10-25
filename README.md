@@ -1,3 +1,6 @@
+
+<img src=".assets/netsantral-logo.png" alt="Netsantral Logo" width="150">
+
 # netsantral-js
 
 Netgsm'in bir ürünü olan Netsantral için gelitirilmiş npm paketedir.
@@ -13,7 +16,7 @@ npm i netsantral-js
 netsantral-js paketini projenize dahil edin.
 
 ```js
-import { Call } from 'netsantral-js';
+import * as netsantral from 'netsantral-js';
 ```
 
 > **Not:** Netgsm hesap ayarları bölümünden **Alt Kullanıcı Hesabı** oluşturarak username ve password değerlerini elde edebilirsiniz.
@@ -26,7 +29,7 @@ import { Call } from 'netsantral-js';
 
 
 ```js
-const call = new Call({
+const call = new netsantral.Call({
   username: '850XXXXXXX',
   password: '*********',
 });
@@ -128,7 +131,7 @@ await call.transfer({ exten: '104', type: 'atxfer' });
 Kuyruk süreçlerini yönetmek için bir Queue instance oluşturun.
 
 ```js
-const queue = new Queue({
+const queue = new netsantral.Queue({
   username: '850XXXXXXX',
   password: '*********',
 });
@@ -164,7 +167,7 @@ await queue.addInternal({
 <details>
 <summary>Dahiliyi Molaya Al</summary>
   
-#### Dahiliyi molaya alabilirsin
+#### Dahili için bir mola başlat
 ```js
   await queue.startInternalBreak({
     queue: '{{queueName}}',
@@ -177,7 +180,7 @@ await queue.addInternal({
 <details>
 <summary>Dahiliyi Moladan Çıkar</summary>
   
-#### Dahiliyi moladan çıkarabilirsin
+#### Dahili için aktif molayı sonlandır
 ```js
   await queue.stopInternalBreak({
     queue: '{{queueName}}',
@@ -186,3 +189,16 @@ await queue.addInternal({
   });
 ```
 </details>
+
+## Gelecek Hedefler
+
+Aşağıda, gelecek sürümler için planlanan özellikler ve iyileştirmeler bulunmaktadır:
+
+- 🟡 **Kuyruğa Dış Numara Ekleme**: Kuyruk yönetimi içerisine kuyruğa dış numara ekleme işlemi.
+- 🟠 **Dinamik Yönlendirme**: Santral yönetimi içerisine dinaimik çağrı yönlendireme özelliği ekleme.
+- 🟠 **Otomatik Arama**: Otomatik arama modülünün entegrasyonu
+- 🟠 **Webhook Santral Dinleme**: Webhook özelliği entegrasyonu
+- 🟠 **Rapor**: CDR ve Gelene Çağrı istatistik mödülleri entegrasyonu
+
+Fikirlerinizi veya iyileştirme önerilerinizi belirtmek için bir issue açmaktan veya doğrudan katkıda bulunmaktan çekinmeyin!
+

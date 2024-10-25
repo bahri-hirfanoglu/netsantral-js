@@ -11,7 +11,6 @@ npm i netsantral-js
 ```
 
 ## Santral Yönetimi
-
 Santral paketini projenize dahil edin.
 
 ```js
@@ -27,9 +26,10 @@ const call = new Call({
   password: '*********',
 });
 ```
-
-### Çağrı Başlat
-Santraliniz üzerinden bir dış arama başlatmanızı sağlar.
+<details>
+<summary>Çağrı Başlat</summary>
+  
+**Santraliniz üzerinden bir dış arama başlatmanızı sağlar.**
 
 ```js
 await call.start({
@@ -38,9 +38,12 @@ await call.start({
   trunk: '850XXXXXXX',
 });
 ```
+</details>
 
-### Çağrı Sonlandır
-Aktif olan bir çağrıyı sonlandırmanızı sağlar.
+<details>
+<summary>Çağrı Sonlandır</summary>
+  
+**Aktif olan bir çağrıyı sonlandırmanızı sağlar.**
 
 #### Son başlatılan çağrıyı sonlandırır.
 ```js
@@ -51,9 +54,11 @@ await call.end();
 ```js
 await call.end({ unique_id: 'sip-xxxx-xxxx-xxxx' crm_id: 1});
 ```
+</details>
 
-### Çağrıyı Sessize Al
-
+<details>
+<summary>Çağrıyı Sessize Al</summary>
+  
 #### Gelen ve giden sesleri kapat.
 ```js
 await call.mute({ direction: 'all' });
@@ -68,10 +73,11 @@ await call.mute({ direction: 'in' });
 ```js
 await call.mute({ direction: 'out' });
 ```
+</details>
 
-
-### Çağrıyı Sessizden Çıkar
-
+<details>
+<summary>Çağrıyı Sessizden Çıkar</summary>
+  
 #### Gelen ve giden tüm sesleri sessizden çıkar.
 ```js
 await call.unMute({ direction: 'all' });
@@ -85,9 +91,11 @@ await call.unMute({ direction: 'in' });
 ```js
 await call.unMute({ direction: 'out' });
 ```
+</details>
 
-### Çağrıyı transfer et
-
+<details>
+<summary>Çağrıyı Transfer Et</summary>
+  
 #### Kör transfer (xfer - Blind Transfer) 
 > xfer çağrı transferinde, arayan kişi başka bir kişiye yönlendirildiğinde, çağrıyı transfer eden kişi görüşmeden tamamen ayrılır.  Çağrıyı transfer eden kişi, çağrının yeni hedefe ulaşacağını kontrol etmez ya da arayanla hedef kişi arasında başka bir işlem yapmaz.
 ```js
@@ -99,3 +107,4 @@ await call.transfer({ exten: '104', type: 'xfer'});
 ```js
 await call.transfer({ exten: '104', type: 'atxfer'});
 ```
+</details>

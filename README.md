@@ -201,4 +201,3 @@ Aşağıda, gelecek sürümler için planlanan özellikler ve iyileştirmeler bu
 - 🟠 **Rapor**: CDR ve Gelene Çağrı istatistik mödülleri entegrasyonu
 
 Fikirlerinizi veya iyileştirme önerilerinizi belirtmek için bir issue açmaktan veya doğrudan katkıda bulunmaktan çekinmeyin!
-

@@ -1,5 +1,5 @@
 
-<img src=".assets/netsantral-logo.png" alt="Netsantral Logo" width="150">
+<img src="https://raw.githubusercontent.com/bahri-hirfanoglu/netsantral-js/main/.assets/netsantral-logo.png" alt="Netsantral Logo" width="150">
 
 # netsantral-js
 

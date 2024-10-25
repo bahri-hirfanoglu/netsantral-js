@@ -28,7 +28,8 @@ const call = new Call({
 ```
 <details>
 <summary>Çağrı Başlat</summary>
-  
+
+
 **Santraliniz üzerinden bir dış arama başlatmanızı sağlar.**
 
 ```js
@@ -43,8 +44,6 @@ await call.start({
 <details>
 <summary>Çağrı Sonlandır</summary>
   
-**Aktif olan bir çağrıyı sonlandırmanızı sağlar.**
-
 #### Son başlatılan çağrıyı sonlandırır.
 ```js
 await call.end();

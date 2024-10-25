@@ -3,7 +3,7 @@
 
 # netsantral-js
 
-Netgsm'in bir ürünü olan Netsantral için gelitirilmiş npm paketedir.
+Netgsm'in bir ürünü olan gelişmiş bulut santral hizmeti sunan Netsantral için geliştirilmiş npm paketi.
 
 ## Kurulum
 

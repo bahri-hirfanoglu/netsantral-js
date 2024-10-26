@@ -190,6 +190,19 @@ await queue.addInternal({
 ```
 </details>
 
+<details>
+<summary>Kuyruğa Dış Numara Ekle</summary>
+  
+#### Eklediğiniz dış numara gelen çağrıları karşılayabilir
+```js
+  await queue.addExternalNumber({
+    tenant: '850XXXXXXX',
+    queue: '{{queueName}}',
+    no: '5XXXXXXXXX',
+  });
+```
+</details>
+
 ## Gelecek Hedefler
 
 Aşağıda, gelecek sürümler için planlanan özellikler ve iyileştirmeler bulunmaktadır:

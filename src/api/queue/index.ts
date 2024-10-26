@@ -5,6 +5,7 @@ import { AddInternalDto } from '../../dtos/add.internal.dto';
 import { RemoveInternalDto } from '../../dtos/remove.internal.dto';
 import { InternalBreakDto } from '../../dtos/internal.break.dto';
 import { AddExternalNumberDto } from '../../dtos/add.external.number.dto';
+import config from '../../config/api.config';
 
 class Queue extends Base {
   constructor(options: RequestDto) {
@@ -63,10 +64,8 @@ class Queue extends Base {
    * @returns
    */
     async addExternalNumber(dto: AddExternalNumberDto): Promise<any> {
-      return this.validateAndSend(dto, '/netsantral/queue', AddExternalNumberDto);
+      return this.validateAndSend(dto, '/netsantral/queue', AddExternalNumberDto, null, config.NETGSM_API);
     }
-
-
 }
 
 export default Queue;

@@ -27,6 +27,7 @@ export class AddExternalNumberDto {
   constructor(partial?: Partial<AddExternalNumberDto>) {
     this.command = 'queueaddnumber';
     this.penalty = this.penalty ?? 1;
+    this.queue = `${this.tenant}-queue-${this.queue}`
     Object.assign(this, partial);
   }
 }

@@ -172,7 +172,7 @@ await queue.addInternal({
   await queue.startInternalBreak({
     queue: '{{queueName}}',
     exten: '{{internal}}',
-    reason: '{{reason}}',
+    reason?: '{{reason}}',
   });
 ```
 </details>
@@ -185,7 +185,7 @@ await queue.addInternal({
   await queue.stopInternalBreak({
     queue: '{{queueName}}',
     exten: '{{internal}}',
-    reason: '{{reason}}',
+    reason?: '{{reason}}',
   });
 ```
 </details>
@@ -194,7 +194,7 @@ await queue.addInternal({
 
 Aşağıda, gelecek sürümler için planlanan özellikler ve iyileştirmeler bulunmaktadır:
 
-- 🟡 **Kuyruğa Dış Numara Ekleme**: Kuyruk yönetimi içerisine kuyruğa dış numara ekleme işlemi.
+- 🟢 ~~**Kuyruğa Dış Numara Ekleme**: Kuyruk yönetimi içerisine kuyruğa dış numara ekleme işlemi.~~
 - 🟠 **Dinamik Yönlendirme**: Santral yönetimi içerisine dinaimik çağrı yönlendireme özelliği ekleme.
 - 🟠 **Otomatik Arama**: Otomatik arama modülünün entegrasyonu.
 - 🟠 **Webhook Santral Dinleme**: Webhook özelliği entegrasyonu.

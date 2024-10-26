@@ -12,7 +12,7 @@ export class InternalBreakDto {
   exten: String;
 
   @IsString()
-  reason: String;
+  reason?: String;
 
   @IsOptional()
   @IsNumber()
@@ -24,6 +24,7 @@ export class InternalBreakDto {
 
   constructor(partial?: Partial<InternalBreakDto>) {
     this.crm_id = partial?.crm_id ?? 1;
+    this.reason = partial?.reason ?? "internal break";
     Object.assign(this, partial);
   }
 }

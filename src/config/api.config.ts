@@ -1,5 +1,6 @@
 const config = {
-    BASE_URL: "http://crmsntrl.netgsm.com.tr:9111",
+    NETSANTRAL_API: "http://crmsntrl.netgsm.com.tr:9111",
+    NETGSM_API: "https://api.netgsm.com.tr"
   };
   
 export default config;

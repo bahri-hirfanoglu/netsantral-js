@@ -128,6 +128,22 @@ await call.transfer({ exten: '104', type: 'atxfer' });
 
 </details>
 
+<details>
+<summary>Dinamik Yönlendirme</summary>
+
+Bir dış arama başlatarak bu aramayı dinamik olarak kuyruğa, ananso veya ivr yönlendirebilirsiniz.
+
+```js
+await call.dynamicRedirect({
+    called: "5XXXXXXXXX",
+    redirect_menu: "ivrtest",
+    redirect_type: "ivr",
+    trunk: "850XXXXXXX",
+  });
+```
+
+</details>
+
 ## Kuyruk Yönetimi
 
 Kuyruk süreçlerini yönetmek için bir Queue instance oluşturun.
@@ -210,7 +226,7 @@ await queue.addInternal({
 Aşağıda, gelecek sürümler için planlanan özellikler ve iyileştirmeler bulunmaktadır:
 
 - 🟢 ~~**Kuyruğa Dış Numara Ekleme**: Kuyruk yönetimi içerisine kuyruğa dış numara ekleme işlemi.~~
-- 🟠 **Dinamik Yönlendirme**: Santral yönetimi içerisine dinaimik çağrı yönlendireme özelliği ekleme.
+- 🟢 ~~**Dinamik Yönlendirme**: Santral yönetimi içerisine dinaimik çağrı yönlendireme özelliği ekleme.~~
 - 🟠 **Otomatik Arama**: Otomatik arama modülünün entegrasyonu.
 - 🟠 **Webhook Santral Dinleme**: Webhook özelliği entegrasyonu.
 - 🟠 **Rapor**: CDR ve Gelene Çağrı istatistik mödülleri entegrasyonu.

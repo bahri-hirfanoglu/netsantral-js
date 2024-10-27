@@ -6,6 +6,7 @@ import { LinkupCallDto } from '../../dtos/linkup.call.dto';
 import { Base } from '../base';
 import { TransferCallDto } from '../../dtos/transfer.call.dto';
 import { CallInfoOption } from '../../options/call.info.options';
+import { DynamicRedirect } from '../../dtos/dynamic.redirect.dto';
 
 class Call extends Base {
   private callInfo: CallInfoOption | undefined;
@@ -94,6 +95,15 @@ class Call extends Base {
    */
   async transfer(dto: TransferCallDto): Promise<any> {
     return this.validateAndSend(dto, `/${dto.type}`, TransferCallDto);
+  }
+
+  /**
+   * Initiate a call and perform dynamic routing
+   * @param dto DynamicRedirect
+   * @returns 
+   */
+  async dynamicRedirect(dto: DynamicRedirect): Promise<any> {
+    return this.validateAndSend(dto, '/dynamic_redirect', DynamicRedirect);
   }
 
   /**

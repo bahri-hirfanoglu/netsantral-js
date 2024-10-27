@@ -226,9 +226,9 @@ await queue.addInternal({
 Aşağıda, gelecek sürümler için planlanan özellikler ve iyileştirmeler bulunmaktadır:
 
 - 🟢 ~~**Kuyruğa Dış Numara Ekleme**: Kuyruk yönetimi içerisine kuyruğa dış numara ekleme işlemi.~~
-- 🟢 ~~**Dinamik Yönlendirme**: Santral yönetimi içerisine dinaimik çağrı yönlendireme özelliği ekleme.~~
+- 🟢 ~~**Dinamik Yönlendirme**: Santral yönetimi içerisine dinaimik çağrı yönlendirme özelliği ekleme.~~
 - 🟠 **Otomatik Arama**: Otomatik arama modülünün entegrasyonu.
 - 🟠 **Webhook Santral Dinleme**: Webhook özelliği entegrasyonu.
-- 🟠 **Rapor**: CDR ve Gelene Çağrı istatistik mödülleri entegrasyonu.
+- 🟠 **Rapor**: CDR ve Gelen Çağrı istatistik mödülleri entegrasyonu.
 
 Fikirlerinizi veya iyileştirme önerilerinizi belirtmek için bir issue açmaktan veya doğrudan katkıda bulunmaktan çekinmeyin!

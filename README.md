@@ -5,6 +5,8 @@
 
 Netgsm'in bir ürünü olan gelişmiş bulut santral hizmeti sunan Netsantral için bir npm paketi.
 
+> Paketi kullanmaya başlamadan önce resmi dökümanı incelemeniz faydalı olacaktır. https://www.netgsm.com.tr/netsantraldokuman
+
 ## Kurulum
 
 `netsantral-js` paketini npm kullanarak kurabilirsiniz:

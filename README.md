@@ -131,7 +131,7 @@ await call.transfer({ exten: '104', type: 'atxfer' });
 <details>
 <summary>Dinamik Yönlendirme</summary>
 
-Bir dış arama başlatarak bu aramayı dinamik olarak kuyruğa, ananso veya ivr yönlendirebilirsiniz.
+Bir dış arama başlatarak bu aramayı dinamik olarak kuyruğa, anonsa veya ivr yönlendirebilirsiniz.
 
 ```js
 await call.dynamicRedirect({
@@ -139,7 +139,7 @@ await call.dynamicRedirect({
     redirect_menu: "ivrtest",
     redirect_type: "ivr",
     trunk: "850XXXXXXX",
-  });
+});
 ```
 
 </details>

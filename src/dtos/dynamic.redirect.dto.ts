@@ -7,7 +7,7 @@ import {
 } from 'class-validator';
 
 /**
- * Dinamik bir arama başlatıp yölendirme yapmak için kullanılacak parametreler
+ * Dinamik bir arama başlatıp yönlendirme yapmak için kullanılacak parametreler
  */
 export class DynamicRedirect {
   @IsString()

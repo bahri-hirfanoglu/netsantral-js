@@ -7,11 +7,13 @@ import { Base } from '../base';
 import { TransferCallDto } from '../../dtos/transfer.call.dto';
 import { CallInfoOption } from '../../options/call.info.options';
 import { DynamicRedirect } from '../../dtos/dynamic.redirect.dto';
+import config from '../../config/api.config';
 
 class Call extends Base {
   private callInfo: CallInfoOption | undefined;
 
   constructor(options: RequestDto) {
+    options.baseUrl = `${config.NETSANTRAL_API}/${options.username}`;
     super(options);
   }
 
@@ -100,7 +102,7 @@ class Call extends Base {
   /**
    * Initiate a call and perform dynamic routing
    * @param dto DynamicRedirect
-   * @returns 
+   * @returns
    */
   async dynamicRedirect(dto: DynamicRedirect): Promise<any> {
     return this.validateAndSend(dto, '/dynamic_redirect', DynamicRedirect);

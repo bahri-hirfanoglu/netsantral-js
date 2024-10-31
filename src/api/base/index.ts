@@ -16,7 +16,7 @@ export class Base {
    * Builds the base URL based on provided options or defaults.
    */
   private buildBaseURL(): string {
-    return `${this.options.baseUrl ?? config.NETSANTRAL_API}/${this.options.username}`;
+    return `${this.options.baseUrl ?? config.NETSANTRAL_API}`;
   }
 
   /**
